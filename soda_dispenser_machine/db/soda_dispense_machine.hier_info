@@ -1,0 +1,107 @@
+|soda_dispense_machine
+s[0] => s[0].IN1
+s[1] => s[1].IN1
+s[2] => s[2].IN1
+s[3] => s[3].IN1
+s[4] => s[4].IN1
+s[5] => s[5].IN1
+s[6] => s[6].IN1
+s[7] => s[7].IN1
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+c => c.IN1
+d <= controller_fsm:dut3.port4
+
+
+|soda_dispense_machine|datapath_sdm:dut2
+tot_ld => always0.IN0
+tot_clr => total.OUTPUTSELECT
+tot_clr => total.OUTPUTSELECT
+tot_clr => total.OUTPUTSELECT
+tot_clr => total.OUTPUTSELECT
+tot_clr => total.OUTPUTSELECT
+tot_clr => total.OUTPUTSELECT
+tot_clr => total.OUTPUTSELECT
+tot_clr => total.OUTPUTSELECT
+tot_clr => always0.IN1
+s[0] => s[0].IN1
+s[1] => s[1].IN1
+s[2] => s[2].IN1
+s[3] => s[3].IN1
+s[4] => s[4].IN1
+s[5] => s[5].IN1
+s[6] => s[6].IN1
+s[7] => s[7].IN1
+a[0] => a[0].IN1
+a[1] => a[1].IN1
+a[2] => a[2].IN1
+a[3] => a[3].IN1
+a[4] => a[4].IN1
+a[5] => a[5].IN1
+a[6] => a[6].IN1
+a[7] => a[7].IN1
+tot_lts <= comparator:dut0.port2
+
+
+|soda_dispense_machine|datapath_sdm:dut2|comparator:dut0
+s[0] => LessThan0.IN8
+s[1] => LessThan0.IN7
+s[2] => LessThan0.IN6
+s[3] => LessThan0.IN5
+s[4] => LessThan0.IN4
+s[5] => LessThan0.IN3
+s[6] => LessThan0.IN2
+s[7] => LessThan0.IN1
+tot[0] => LessThan0.IN16
+tot[1] => LessThan0.IN15
+tot[2] => LessThan0.IN14
+tot[3] => LessThan0.IN13
+tot[4] => LessThan0.IN12
+tot[5] => LessThan0.IN11
+tot[6] => LessThan0.IN10
+tot[7] => LessThan0.IN9
+tot_lts <= LessThan0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|soda_dispense_machine|datapath_sdm:dut2|adder:dut1
+a[0] => Add0.IN8
+a[1] => Add0.IN7
+a[2] => Add0.IN6
+a[3] => Add0.IN5
+a[4] => Add0.IN4
+a[5] => Add0.IN3
+a[6] => Add0.IN2
+a[7] => Add0.IN1
+b[0] => Add0.IN16
+b[1] => Add0.IN15
+b[2] => Add0.IN14
+b[3] => Add0.IN13
+b[4] => Add0.IN12
+b[5] => Add0.IN11
+b[6] => Add0.IN10
+b[7] => Add0.IN9
+d_out[0] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+d_out[1] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+d_out[2] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+d_out[3] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+d_out[4] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+d_out[5] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+d_out[6] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+d_out[7] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|soda_dispense_machine|controller_fsm:dut3
+c => state.OUTPUTSELECT
+c => Mux0.IN3
+tot_lts => state.DATAA
+tot_clr <= tot_clr.DB_MAX_OUTPUT_PORT_TYPE
+tot_ld <= tot_ld.DB_MAX_OUTPUT_PORT_TYPE
+d <= d.DB_MAX_OUTPUT_PORT_TYPE
+
+

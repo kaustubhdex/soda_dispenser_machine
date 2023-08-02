@@ -1,0 +1,9 @@
+module adder (a, b, d_out);
+	parameter n=8;
+	input [n-1:0] a,b;
+	output [n-1:0] d_out;
+	
+	assign d_out <= a+b;
+	
+endmodule
+	
